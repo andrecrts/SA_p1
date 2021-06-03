@@ -1,5 +1,7 @@
 pipeline {
-  agent { docker { image 'node:14-alpine' } }
+  agent {
+    dockerfile true
+  }
     environment {
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
@@ -15,7 +17,6 @@ pipeline {
         }
       }
     }
-
 
     stage('Build') {
       steps { sh 'npm run-script build' }
