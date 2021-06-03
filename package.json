@@ -14,8 +14,21 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "node ./node_modules/.bin/react-scripts test --watchAll=true --collectCoverage",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  },
+  "jest-junit": {
+    "output": "output/coverage/junit/junit.xml",
+    "usePathForSuiteName": "true"
   },
   "eslintConfig": {
     "extends": [

@@ -8,9 +8,14 @@ pipeline {
     }
 
     stage('Test') {
-      parallel {
-        stage('Unit tests') {
-            steps { sh 'npm run-script test' }
+      steps {
+        script {
+          sh 'npm run test'
+        }
+      }
+      post {
+        always {
+          junit 'output/coverage/junit/junit.xml'
         }
       }
     }
