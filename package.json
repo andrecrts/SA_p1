@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
+    "test": "CI=true && react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -47,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest-junit": "^12.1.0"
   }
 }
