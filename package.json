@@ -17,19 +17,6 @@
     "test": "CI=true && react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
-  "jest": {
-    "coverageReporters": [
-      "text"
-    ],
-    "reporters": [
-      "default",
-      "jest-junit"
-    ]
-  },
-  "jest-junit": {
-    "output": "output/coverage/junit/junit.xml",
-    "usePathForSuiteName": "true"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
