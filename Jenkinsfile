@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    dockerfile true
-  }
+  agent { docker { image 'node:14-alpine' } }
     environment {
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
