@@ -4,6 +4,7 @@ pipeline {
   }
   environment {
     FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
+    USER_GOOGLE = credentials('USER_GOOGLE')
   }
   stages {
     stage('Install') {
@@ -23,13 +24,10 @@ pipeline {
     }
 
     stage('Deploy') {
-      
-      withCredentials([file(credentialsId: 'USER_GOOGLE', variable: 'USER_GOOGLE')]) {
-                    sh 'ansible-playbook main.yaml --user $USER_GOOGLE'
-                }
+      steps {
+        sh 'ansible-playbook main.yaml --user $USER_GOOGLE'
+      }
     }
-
-
 
   }
 }
