@@ -3,7 +3,6 @@ pipeline {
       docker { image 'node:latest' }
   }
   environment {
-    FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     USER_GOOGLE = credentials('USER_GOOGLE')
   }
   stages {
@@ -28,6 +27,5 @@ pipeline {
         sh 'ansible-playbook main.yaml --user $USER_GOOGLE'
       }
     }
-
   }
 }
