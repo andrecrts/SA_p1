@@ -1,0 +1,5 @@
+FROM node:latest
+
+RUN npm install -g firebase-tools
+RUN apt-get install python
+RUN pip install fabric

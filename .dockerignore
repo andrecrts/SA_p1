@@ -1,0 +1,9 @@
+examples
+build
+node_modules
+packages/*/node_modules
+packages/*/lib
+packages/*/dist
+packages/*/build
+*-debug.log
+.vscode

@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    dockerfile true
+      docker { image 'node:latest' }
   }
   environment {
     FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
@@ -22,10 +22,14 @@ pipeline {
       steps { sh 'npm run-script build' }
     }
 
-    stage("Publish") {
-        steps {
-            sh 'firebase deploy --token $FIREBASE_TOKEN'
-        }
+    stage('Deploy') {
+      
+      withCredentials([file(credentialsId: 'USER_GOOGLE', variable: 'USER_GOOGLE')]) {
+                    sh 'ansible-playbook main.yaml --user $USER_GOOGLE'
+                }
     }
+
+
+
   }
 }
